@@ -44,31 +44,6 @@ The system categorizes applications based on their predicted risk and displays t
 
 [Click here to watch the project demonstration](https://drive.google.com/file/d/1fNK4iO468AhSTUDCvoSW-n3b3R6MUk26/view?usp=drivesdk)
 
-## 📂 Project Structure
-
-```text
-Smart-Scholarship-Monitoring-System/
-│
-├── data/
-│   └── Project data files
-│
-├── static/
-│   └── CSS and static resources
-│
-├── templates/
-│   └── HTML templates
-│
-├── app.py
-│   └── Main Flask application
-│
-├── model/
-│   └── Machine Learning model files
-│
-├── requirements.txt
-│   └── Required Python packages
-│
-└── README.md
-
 ## Installation Steps
 
 1. Clone the repository.
@@ -117,3 +92,28 @@ The main objective of this project is to provide an efficient and intelligent sy
 ## Author
 
 Shiva Shakti Paldorai
+
+## 📂 Project Structure
+
+```text
+Smart-Scholarship-Monitoring-System/
+│
+├── data/
+│   └── Project data files
+│
+├── static/
+│   └── CSS and static resources
+│
+├── templates/
+│   └── HTML templates
+│
+├── app.py
+│   └── Main Flask application
+│
+├── model/
+│   └── Machine Learning model files
+│
+├── requirements.txt
+│   └── Required Python packages
+│
+└── README.md
