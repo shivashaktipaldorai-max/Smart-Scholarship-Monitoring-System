@@ -89,6 +89,10 @@ The main objective of this project is to provide an efficient and intelligent sy
 - Advanced analytics and reporting
 - Cloud deployment
 
+## 📸 Screenshots
+
+Application screenshots are available in the `screenshots` folder.
+
 ## Author
 
 Shiva Shakti Paldorai
