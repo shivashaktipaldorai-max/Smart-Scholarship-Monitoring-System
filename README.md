@@ -44,6 +44,10 @@ The system categorizes applications based on their predicted risk and displays t
 
 [Click here to watch the project demonstration](https://drive.google.com/file/d/1fNK4iO468AhSTUDCvoSW-n3b3R6MUk26/view?usp=drivesdk)
 
+## 📄 Project Presentation
+
+https://docs.google.com/presentation/d/1dkni7mMF1AkbGSFsKFhKkoWSotdO0FU-/edit?usp=drivesdk&ouid=102473097615427050553&rtpof=true&sd=true
+
 ## Installation Steps
 
 1. Clone the repository.
