@@ -1,0 +1,104 @@
+application_id,student_id,student_name,scheme,applied_date,documents_status,stage,sanctioned_amount,disbursed_date,needs_attention
+APP001,STU001,Aarav Kumar,Merit Scholarship,2026-01-05,Complete,Disbursed,50000.0,2026-02-20,no
+APP002,STU002,Ananya Ravi,Merit Scholarship,2026-01-08,Complete,Disbursed,45000.0,2026-02-25,no
+APP003,STU003,Arjun Raj,Merit Scholarship,2026-01-12,Complete,Sanctioned,60000.0,,yes
+APP004,STU004,Diya Suresh,State Scholarship,2026-01-15,Complete,Verification,0.0,,yes
+APP005,STU005,Kavin Kumar,State Scholarship,2026-01-18,Pending,Document Collection,0.0,,yes
+APP006,STU006,Meera Priya,Merit Scholarship,2026-01-20,Complete,Disbursed,55000.0,2026-03-05,no
+APP007,STU007,Rahul Dev,Merit Scholarship,2026-01-22,Complete,Sanctioned,40000.0,,yes
+APP008,STU008,Nithya Bala,State Scholarship,2026-01-25,Incomplete,Document Collection,0.0,,yes
+APP009,STU009,Vishal Anand,State Scholarship,2026-01-28,Complete,Verification,0.0,,yes
+APP010,STU010,Harini S,Merit Scholarship,2026-02-01,Complete,Disbursed,50000.0,2026-03-15,no
+APP011,STU011,Aditya Mohan,Merit Scholarship,2026-02-03,Complete,Sanctioned,65000.0,,yes
+APP012,STU012,Keerthana R,State Scholarship,2026-02-05,Pending,Document Collection,0.0,,yes
+APP013,STU013,Sanjay Kumar,State Scholarship,2026-02-07,Complete,Verification,0.0,,yes
+APP014,STU014,Priya Dharshini,Merit Scholarship,2026-02-09,Complete,Sanctioned,45000.0,,yes
+APP015,STU015,Surya Prakash,Merit Scholarship,2026-02-11,Complete,Disbursed,60000.0,2026-03-25,no
+APP016,STU016,Divya Lakshmi,State Scholarship,2026-02-13,Incomplete,Document Collection,0.0,,yes
+APP017,STU017,Rohit Sharma,State Scholarship,2026-02-15,Complete,Verification,0.0,,yes
+APP018,STU018,Shruthi V,Merit Scholarship,2026-02-17,Complete,Sanctioned,55000.0,,yes
+APP019,STU019,Manoj Kumar,Merit Scholarship,2026-02-19,Complete,Disbursed,50000.0,2026-04-01,no
+APP020,STU020,Swetha R,State Scholarship,2026-02-21,Pending,Document Collection,0.0,,yes
+APP021,STU021,Akash M,State Scholarship,2026-02-23,Complete,Verification,0.0,,yes
+APP022,STU022,Janani S,Merit Scholarship,2026-02-25,Complete,Sanctioned,40000.0,,yes
+APP023,STU023,Dinesh Babu,Merit Scholarship,2026-02-27,Complete,Disbursed,45000.0,2026-04-10,no
+APP024,STU024,Deepa K,State Scholarship,2026-03-01,Incomplete,Document Collection,0.0,,yes
+APP025,STU025,Pradeep Raj,State Scholarship,2026-03-03,Complete,Verification,0.0,,yes
+APP026,STU026,Shalini P,Merit Scholarship,2026-03-05,Complete,Sanctioned,60000.0,,yes
+APP027,STU027,Vignesh S,Merit Scholarship,2026-03-07,Complete,Disbursed,55000.0,2026-04-20,no
+APP028,STU028,Monisha R,State Scholarship,2026-03-09,Pending,Document Collection,0.0,,yes
+APP029,STU029,Gokul Krishna,State Scholarship,2026-03-11,Complete,Verification,0.0,,yes
+APP030,STU030,Reshma A,Merit Scholarship,2026-03-13,Complete,Sanctioned,50000.0,,yes
+APP031,STU031,Suraj Kumar,Merit Scholarship,2026-03-15,Complete,Disbursed,65000.0,2026-04-30,no
+APP032,STU032,Abinaya M,State Scholarship,2026-03-17,Incomplete,Document Collection,0.0,,yes
+APP033,STU033,Ajay Kumar,State Scholarship,2026-03-19,Complete,Verification,0.0,,yes
+APP034,STU034,Lavanya S,Merit Scholarship,2026-03-21,Complete,Sanctioned,45000.0,,yes
+APP035,STU035,Mukesh R,Merit Scholarship,2026-03-23,Complete,Disbursed,50000.0,2026-05-05,no
+APP036,STU036,Sindhu Priya,State Scholarship,2026-03-25,Pending,Document Collection,0.0,,yes
+APP037,STU037,Bharath K,State Scholarship,2026-03-27,Complete,Verification,0.0,,yes
+APP038,STU038,Vaishnavi R,Merit Scholarship,2026-03-29,Complete,Sanctioned,55000.0,,yes
+APP039,STU039,Aravind S,Merit Scholarship,2026-03-31,Complete,Disbursed,40000.0,2026-05-15,no
+APP040,STU040,Keerthi M,State Scholarship,2026-04-02,Incomplete,Document Collection,0.0,,yes
+APP041,STU041,Santhosh Kumar,State Scholarship,2026-04-04,Complete,Verification,0.0,,yes
+APP042,STU042,Swathi R,Merit Scholarship,2026-04-06,Complete,Sanctioned,60000.0,,yes
+APP043,STU043,Pranav S,Merit Scholarship,2026-04-08,Complete,Disbursed,45000.0,2026-05-25,no
+APP044,STU044,Akshaya P,State Scholarship,2026-04-10,Pending,Document Collection,0.0,,yes
+APP045,STU045,Tharun Kumar,State Scholarship,2026-04-12,Complete,Verification,0.0,,yes
+APP046,STU046,Amritha S,Merit Scholarship,2026-04-14,Complete,Sanctioned,50000.0,,yes
+APP047,STU047,Harish R,Merit Scholarship,2026-04-16,Complete,Disbursed,55000.0,2026-06-05,no
+APP048,STU048,Shreya M,State Scholarship,2026-04-18,Incomplete,Document Collection,0.0,,yes
+APP049,STU049,Lokesh K,State Scholarship,2026-04-20,Complete,Verification,0.0,,yes
+APP050,STU050,Preethi V,Merit Scholarship,2026-04-22,Complete,Sanctioned,65000.0,,yes
+APP051,STU051,Manikandan R,Merit Scholarship,2026-04-24,Complete,Disbursed,50000.0,2026-06-15,no
+APP052,STU052,Aishwarya S,State Scholarship,2026-04-26,Pending,Document Collection,0.0,,yes
+APP053,STU053,Surya Narayanan,State Scholarship,2026-04-28,Complete,Verification,0.0,,yes
+APP054,STU054,Malavika R,Merit Scholarship,2026-04-30,Complete,Sanctioned,45000.0,,yes
+APP055,STU055,Praveen Kumar,Merit Scholarship,2026-05-02,Complete,Disbursed,60000.0,2026-06-25,no
+APP056,STU056,Anusha P,State Scholarship,2026-05-04,Incomplete,Document Collection,0.0,,yes
+APP057,STU057,Karthik S,State Scholarship,2026-05-06,Complete,Verification,0.0,,yes
+APP058,STU058,Rithika M,Merit Scholarship,2026-05-08,Complete,Sanctioned,55000.0,,yes
+APP059,STU059,Manoj S,Merit Scholarship,2026-05-10,Complete,Disbursed,40000.0,2026-07-05,no
+APP060,STU060,Divya R,State Scholarship,2026-05-12,Pending,Document Collection,0.0,,yes
+APP061,STU061,Arun Kumar,State Scholarship,2026-05-14,Complete,Verification,0.0,,yes
+APP062,STU062,Sowmya P,Merit Scholarship,2026-05-16,Complete,Sanctioned,50000.0,,yes
+APP063,STU063,Naveen Raj,Merit Scholarship,2026-05-18,Complete,Disbursed,45000.0,2026-07-10,no
+APP064,STU064,Monika S,State Scholarship,2026-05-20,Incomplete,Document Collection,0.0,,yes
+APP065,STU065,Deepak Kumar,State Scholarship,2026-05-22,Complete,Verification,0.0,,yes
+APP066,STU066,Sharmila R,Merit Scholarship,2026-05-24,Complete,Sanctioned,60000.0,,yes
+APP067,STU067,Ganesh M,Merit Scholarship,2026-05-26,Complete,Disbursed,55000.0,2026-07-15,no
+APP068,STU068,Anjali P,State Scholarship,2026-05-28,Pending,Document Collection,0.0,,yes
+APP069,STU069,Suresh Babu,State Scholarship,2026-05-30,Complete,Verification,0.0,,yes
+APP070,STU070,Meghana S,Merit Scholarship,2026-06-01,Complete,Sanctioned,50000.0,,yes
+APP071,STU071,Rajesh Kumar,Merit Scholarship,2026-06-03,Complete,Disbursed,65000.0,2026-07-18,no
+APP072,STU072,Swetha M,State Scholarship,2026-06-05,Incomplete,Document Collection,0.0,,yes
+APP073,STU073,Varun R,State Scholarship,2026-06-07,Complete,Verification,0.0,,yes
+APP074,STU074,Pooja S,Merit Scholarship,2026-06-09,Complete,Sanctioned,45000.0,,yes
+APP075,STU075,Arun Prakash,Merit Scholarship,2026-06-11,Complete,Disbursed,50000.0,2026-07-20,no
+APP076,STU076,Nandhini K,State Scholarship,2026-06-13,Pending,Document Collection,0.0,,yes
+APP077,STU077,Surendran R,State Scholarship,2026-06-15,Complete,Verification,0.0,,yes
+APP078,STU078,Anitha S,Merit Scholarship,2026-06-17,Complete,Sanctioned,55000.0,,yes
+APP079,STU079,Krishna Kumar,Merit Scholarship,2026-06-19,Complete,Disbursed,40000.0,2026-07-20,no
+APP080,STU080,Shivani R,State Scholarship,2026-06-21,Incomplete,Document Collection,0.0,,yes
+APP081,STU081,Prakash M,State Scholarship,2026-06-23,Complete,Verification,0.0,,yes
+APP082,STU082,Reshma P,Merit Scholarship,2026-06-25,Complete,Sanctioned,60000.0,,yes
+APP083,STU083,Varsha S,Merit Scholarship,2026-06-27,Complete,Disbursed,45000.0,2026-07-20,no
+APP084,STU084,Kishore K,State Scholarship,2026-06-29,Pending,Document Collection,0.0,,yes
+APP085,STU085,Meena R,State Scholarship,2026-07-01,Complete,Verification,0.0,,yes
+APP086,STU086,Rajiv Kumar,Merit Scholarship,2026-07-03,Complete,Sanctioned,50000.0,,yes
+APP087,STU087,Swetha Priya,Merit Scholarship,2026-07-05,Complete,Disbursed,55000.0,2026-07-20,no
+APP088,STU088,Vijay S,State Scholarship,2026-07-07,Incomplete,Document Collection,0.0,,yes
+APP089,STU089,Harini R,State Scholarship,2026-07-09,Complete,Verification,0.0,,yes
+APP090,STU090,Anand Kumar,Merit Scholarship,2026-07-11,Complete,Sanctioned,65000.0,,yes
+APP091,STU091,Divya S,Merit Scholarship,2026-07-13,Complete,Disbursed,50000.0,2026-07-20,no
+APP092,STU092,Ramesh K,State Scholarship,2026-07-14,Pending,Document Collection,0.0,,yes
+APP093,STU093,Anu Priya,State Scholarship,2026-07-15,Complete,Verification,0.0,,yes
+APP094,STU094,Karthika R,Merit Scholarship,2026-07-16,Complete,Sanctioned,45000.0,,yes
+APP095,STU095,Mohan S,Merit Scholarship,2026-07-17,Complete,Disbursed,60000.0,2026-07-20,no
+APP096,STU096,Pavithra M,State Scholarship,2026-07-18,Incomplete,Document Collection,0.0,,yes
+APP097,STU097,Sathish Kumar,State Scholarship,2026-07-19,Complete,Verification,0.0,,yes
+APP098,STU098,Shobana R,Merit Scholarship,2026-07-20,Complete,Sanctioned,55000.0,,yes
+APP099,STU099,Arunima S,State Scholarship,2026-01-10,Complete,Verification,0.0,,yes
+APP100,STU100,Ananya,Merit Scholarship,2026-02-10,Complete,Document Collection,0.0,,yes
+APP101,STU101,Ananya,Merit Scholarship,2026-07-13,Complete,Document Collection,50000.0,,yes
+APP102,STU102,Shiva,Merit Scholarship,2026-07-25,Complete,Sanctioned,50000.0,,yes
+APP103,STU103,Prithwin,Merit Scholarship,2026-07-25,Complete,Sanctioned,50000.0,,yes

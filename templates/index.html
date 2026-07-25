@@ -1,0 +1,877 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"><meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>SIH 2026 - Student Scholarship Tracker</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+
+</head><body><div class="container"><!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header>
+
+    <h1>
+        🎓 SIH 2026 Student Scholarship Tracker
+    </h1>
+
+    <p>
+        Smart scholarship application tracking,
+        disbursement monitoring and ML-based delay-risk prediction.
+    </p>
+
+</header>
+
+
+<!-- =====================================================
+     FLASH MESSAGES
+====================================================== -->
+
+{% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+
+        <div class="messages">
+
+            {% for message in messages %}
+
+                <p>
+                    {{ message }}
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+{% endwith %}
+
+
+<!-- =====================================================
+     DASHBOARD SUMMARY
+====================================================== -->
+
+<section class="dashboard">
+
+    <div class="dashboard-card">
+
+        <h3>
+            📋 Total Applications
+        </h3>
+
+        <p>
+            {{ applications|length }}
+        </p>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <h3>
+            ⏳ Longest Waiting
+        </h3>
+
+        <p>
+
+            {% if longest_waiting %}
+
+                {{ longest_waiting[0].waiting_days }} days
+
+            {% else %}
+
+                0 days
+
+            {% endif %}
+
+        </p>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <h3>
+            ⚠️ Attention Required
+        </h3>
+
+        <p>
+
+            {% set attention_count = namespace(value=0) %}
+
+            {% for application in applications %}
+
+                {% if application.prediction is defined
+                      and application.prediction.risk is defined
+                      and application.prediction.risk|lower == "high" %}
+
+                    {% set attention_count.value =
+                          attention_count.value + 1 %}
+
+                {% endif %}
+
+            {% endfor %}
+
+            {{ attention_count.value }}
+
+        </p>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <h3>
+            💰 Total Sanctioned
+        </h3>
+
+        <p>
+
+            {% set total_amount = namespace(value=0) %}
+
+            {% for application in applications %}
+
+                {% set amount = application.sanctioned_amount|float %}
+
+                {% set total_amount.value =
+                      total_amount.value + amount %}
+
+            {% endfor %}
+
+            ${{ "%.2f"|format(total_amount.value) }}
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SEARCH APPLICATIONS
+====================================================== -->
+
+<section class="search-section">
+
+    <h2>
+        🔍 Search Applications
+    </h2>
+
+
+    <form method="GET"
+          action="{{ url_for('index') }}">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search Application ID, Student ID, Student Name or Scheme"
+            value="{{ search or '' }}"
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+        <a href="{{ url_for('index') }}">
+            Clear
+        </a>
+
+    </form>
+
+</section>
+
+
+<!-- =====================================================
+     ADD NEW APPLICATION
+====================================================== -->
+
+<section class="form-section">
+
+    <h2>
+        ➕ Add New Scholarship Application
+    </h2>
+
+
+    <form method="POST"
+          action="{{ url_for('add_application') }}">
+
+
+        <div class="form-grid">
+
+
+            <!-- Application ID -->
+
+            <div>
+
+                <label>
+                    Application ID
+                </label>
+
+                <input
+                    type="text"
+                    name="application_id"
+                    placeholder="Example: APP104"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Student ID -->
+
+            <div>
+
+                <label>
+                    Student ID
+                </label>
+
+                <input
+                    type="text"
+                    name="student_id"
+                    placeholder="Example: STU104"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Student Name -->
+
+            <div>
+
+                <label>
+                    Student Name
+                </label>
+
+                <input
+                    type="text"
+                    name="student_name"
+                    placeholder="Enter student name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Scholarship Scheme -->
+
+            <div>
+
+                <label>
+                    Scholarship Scheme
+                </label>
+
+                <select name="scheme" required>
+
+                    <option value="">
+                        Select Scheme
+                    </option>
+
+                    <option value="Merit Scholarship">
+                        Merit Scholarship
+                    </option>
+
+                    <option value="Government Scholarship">
+                        Government Scholarship
+                    </option>
+
+                    <option value="State Scholarship">
+                        State Scholarship
+                    </option>
+
+                    <option value="SC/ST Scholarship">
+                        SC/ST Scholarship
+                    </option>
+
+                    <option value="Sports Scholarship">
+                        Sports Scholarship
+                    </option>
+
+                    <option value="First Graduate Scholarship">
+                        First Graduate Scholarship
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Applied Date -->
+
+            <div>
+
+                <label>
+                    Applied Date
+                </label>
+
+                <input
+                    type="date"
+                    name="applied_date"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Documents Status -->
+
+            <div>
+
+                <label>
+                    Documents Status
+                </label>
+
+                <select
+                    name="documents_status"
+                    required
+                >
+
+                    <option value="Complete">
+                        Complete
+                    </option>
+
+                    <option value="Pending">
+                        Pending
+                    </option>
+
+                    <option value="Incomplete">
+                        Incomplete
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Application Stage -->
+
+            <div>
+
+                <label>
+                    Application Stage
+                </label>
+
+                <select
+                    name="stage"
+                    required
+                >
+
+                    <option value="Document Collection">
+                        Document Collection
+                    </option>
+
+                    <option value="Verification">
+                        Verification
+                    </option>
+
+                    <option value="Sanctioned">
+                        Sanctioned
+                    </option>
+
+                    <option value="Disbursed">
+                        Disbursed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Sanctioned Amount -->
+
+            <div>
+
+                <label>
+                    Sanctioned Amount
+                </label>
+
+                <input
+                    type="number"
+                    name="sanctioned_amount"
+                    min="0"
+                    step="0.01"
+                    value="0"
+                >
+
+            </div>
+
+
+            <!-- Disbursed Date -->
+
+            <div>
+
+                <label>
+                    Disbursed Date
+                </label>
+
+                <input
+                    type="date"
+                    name="disbursed_date"
+                >
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ADD BUTTON -->
+
+        <button
+            type="submit"
+            class="add-button"
+        >
+
+            ➕ Add Application
+
+        </button>
+
+
+    </form>
+
+</section>
+
+
+<!-- =====================================================
+     LONGEST WAITING APPLICATIONS
+====================================================== -->
+
+{% if longest_waiting %}
+
+<section class="table-section">
+
+    <h2>
+        ⏳ Longest Waiting Applications
+    </h2>
+
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Application ID
+                    </th>
+
+                    <th>
+                        Student Name
+                    </th>
+
+                    <th>
+                        Scheme
+                    </th>
+
+                    <th>
+                        Stage
+                    </th>
+
+                    <th>
+                        Waiting Days
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for application in longest_waiting %}
+
+                <tr>
+
+                    <td>
+                        {{ application.application_id }}
+                    </td>
+
+                    <td>
+                        {{ application.student_name }}
+                    </td>
+
+                    <td>
+                        {{ application.scheme or "Not Provided" }}
+                    </td>
+
+                    <td>
+                        {{ application.stage }}
+                    </td>
+
+                    <td>
+
+                        <strong>
+                            {{ application.waiting_days }} days
+                        </strong>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+<!-- =====================================================
+     ALL APPLICATIONS
+====================================================== -->
+
+<section class="table-section">
+
+
+    <h2>
+
+        📋 Scholarship Applications
+
+        ({{ applications|length }})
+
+    </h2>
+
+
+    {% if applications %}
+
+
+    <div class="table-container">
+
+
+        <table>
+
+
+            <thead>
+
+
+                <tr>
+
+                    <th>
+                        Application ID
+                    </th>
+
+                    <th>
+                        Student ID
+                    </th>
+
+                    <th>
+                        Student Name
+                    </th>
+
+                    <th>
+                        Scheme
+                    </th>
+
+                    <th>
+                        Applied Date
+                    </th>
+
+                    <th>
+                        Documents
+                    </th>
+
+                    <th>
+                        Stage
+                    </th>
+
+                    <th>
+                        Sanctioned Amount
+                    </th>
+
+                    <th>
+                        Disbursed Date
+                    </th>
+
+                    <th>
+                        Waiting Days
+                    </th>
+
+                    <th>
+                        ML Prediction
+                    </th>
+
+                </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+                {% for application in applications %}
+
+
+                <tr>
+
+
+                    <!-- Application ID -->
+
+                    <td>
+                        {{ application.application_id }}
+                    </td>
+
+
+                    <!-- Student ID -->
+
+                    <td>
+                        {{ application.student_id }}
+                    </td>
+
+
+                    <!-- Student Name -->
+
+                    <td>
+                        {{ application.student_name }}
+                    </td>
+
+
+                    <!-- Scholarship Scheme -->
+
+                    <td>
+                        {{ application.scheme or "Not Provided" }}
+                    </td>
+
+
+                    <!-- Applied Date -->
+
+                    <td>
+                        {{ application.applied_date }}
+                    </td>
+
+
+                    <!-- Documents Status -->
+
+                    <td>
+
+                        {% if application.documents_status == "Complete" %}
+
+                            ✅ Complete
+
+                        {% elif application.documents_status == "Pending" %}
+
+                            ⏳ Pending
+
+                        {% elif application.documents_status == "Incomplete" %}
+
+                            ⚠️ Incomplete
+
+                        {% else %}
+
+                            {{ application.documents_status }}
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- Stage -->
+
+                    <td>
+                        {{ application.stage }}
+                    </td>
+
+
+                    <!-- Sanctioned Amount -->
+
+                    <td>
+
+                        ${{ "%.2f"|format(
+                            application.sanctioned_amount|float
+                        ) }}
+
+                    </td>
+
+
+                    <!-- Disbursed Date -->
+
+                    <td>
+
+                        {% if application.disbursed_date %}
+
+                            {{ application.disbursed_date }}
+
+                        {% else %}
+
+                            Not Disbursed
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- Waiting Days -->
+
+                    <td>
+
+                        {% if application.waiting_days is not none %}
+
+                            {{ application.waiting_days }} days
+
+                        {% else %}
+
+                            N/A
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- =================================================
+                         ML PREDICTION
+                    ================================================== -->
+
+                    <td>
+
+    {% if application.prediction == "Needs Attention" %}
+
+        <strong>
+            ⚠️ High Delay Risk
+        </strong>
+
+        <br>
+
+        <small>
+            Confidence: {{ application.prediction_confidence }}%
+        </small>
+
+    {% elif application.prediction == "No Immediate Attention Needed" %}
+
+        <strong>
+            ✅ Low Delay Risk
+        </strong>
+
+        <br>
+
+        <small>
+            Confidence: {{ application.prediction_confidence }}%
+        </small>
+
+    {% else %}
+
+        <strong>
+            ⏳ Prediction Unavailable
+        </strong>
+
+    {% endif %}
+
+</td>
+
+
+                </tr>
+
+
+                {% endfor %}
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+    {% else %}
+
+
+    <!-- =================================================
+         EMPTY STATE
+    ================================================== -->
+
+    <div class="empty-state">
+
+
+        <h3>
+            No applications found
+        </h3>
+
+
+        <p>
+            Try a different search
+            or add a new scholarship application.
+        </p>
+
+
+    </div>
+
+
+    {% endif %}
+
+
+</section>
+
+
+<!-- =====================================================
+     SIH PROJECT INFORMATION
+====================================================== -->
+
+<section class="info-section">
+
+    <h2>
+        💡 Smart Scholarship Monitoring System
+    </h2>
+
+    <p>
+        This system helps students and administrators
+        monitor scholarship applications from submission
+        to final disbursement.
+    </p>
+
+
+    <div class="feature-list">
+
+        <div>
+            🔍 <strong>Application Search</strong>
+            <br>
+            Quickly find applications using student
+            or application details.
+        </div>
+
+
+        <div>
+            ⏳ <strong>Waiting Time Monitoring</strong>
+            <br>
+            Automatically calculates how long an application
+            has been waiting.
+        </div>
+
+
+        <div>
+            🤖 <strong>Machine Learning Prediction</strong>
+            <br>
+            Predicts potential scholarship delay risk
+            using application information.
+        </div>
+
+
+        <div>
+            ⚠️ <strong>Early Attention Detection</strong>
+            <br>
+            Helps identify applications that may require
+            administrative attention.
+        </div>
+
+
+        <div>
+            💰 <strong>Disbursement Tracking</strong>
+            <br>
+            Tracks sanctioned amounts and disbursement dates.
+        </div>
+
+    </div>
+
+</section>
+
+</div></body></html>
