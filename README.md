@@ -40,6 +40,10 @@ The system categorizes applications based on their predicted risk and displays t
 - Git
 - GitHub
 
+## 🎥 Demo Video
+
+[Click here to watch the project demonstration](https://drive.google.com/file/d/1fNK4iO468AhSTUDCvoSW-n3b3R6MUk26/view?usp=drivesdk)
+
 ## 📂 Project Structure
 
 ```text
@@ -113,7 +117,3 @@ The main objective of this project is to provide an efficient and intelligent sy
 ## Author
 
 Shiva Shakti Paldorai
-
-## 🎥 Demo Video
-
-[Click here to watch the project demonstration]( https://drive.google.com/file/d/1fNK4iO468AhSTUDCvoSW-n3b3R6MUk26/view?usp=drivesdk )
